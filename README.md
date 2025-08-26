@@ -274,6 +274,29 @@ python large_scale_analysis.py
 - **2015-2020**: AI/Cloud acceleration (NVDA, AMZN growth)
 - **2020-2025**: Digital transformation maturity (sustained tech leadership)
 
+### **Drawdown Analysis & Risk Management**
+
+![Drawdown Analysis](./results/plots/drawdown_analysis.png)
+
+**Maximum Drawdown Details:**
+- **Peak Value**: $246,118 (June 2, 2008)
+- **Trough Value**: $140,950 (October 27, 2008)
+- **Maximum Drawdown**: **-42.73%**
+- **Recovery Duration**: **676 days (22.2 months)**
+- **Recovery Date**: April 9, 2010
+
+**Drawdown Statistics:**
+- **Total Significant Drawdowns (>10%)**: 31 periods over 20 years
+- **Average Recovery Time**: 4.1 months
+- **Longest Drawdown**: 24.7 months (2021-2024 tech correction)
+- **Most Frequent**: Short-term corrections (1-3 months)
+
+**Risk Management Insights:**
+- **2008 Financial Crisis**: Largest drawdown coincided with global market crash
+- **Quick Recovery**: Portfolio recovered to new highs within 22 months
+- **Resilient Performance**: Strategy maintained growth trajectory despite multiple corrections
+- **Diversification Benefits**: Quarterly rebalancing helped limit extended drawdown periods
+
 ## 🎨 **Visualizations**
 
 The system generates comprehensive visualizations including:
