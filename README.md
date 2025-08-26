@@ -224,6 +224,13 @@ python large_scale_analysis.py
 | **Wealth Multiple** | **54.4x** | 44x | 6.7x | **+10.4x** |
 | **Total Return** | **5,336%** | 4,300% | 572% | **+1,036%** |
 
+**Risk Metrics:**
+- **Maximum Drawdown**: -42.7% (controlled through optimization)
+- **VaR (5%)**: -2.67% daily risk
+- **CVaR (5%)**: -4.03% tail risk
+- **Volatility**: 27.7% annual (target-based)
+- **Sharpe Ratio**: 0.797
+
 **Key Advantages:**
 - **Adaptive Selection**: Automatically captures emerging growth opportunities
 - **Risk Management**: MPT optimization for each quarterly rebalancing  
