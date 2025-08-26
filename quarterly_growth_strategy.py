@@ -262,9 +262,55 @@ class QuarterlyGrowthStrategy:
         ax1.grid(True, alpha=0.3)
         ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f'${y:,.0f}'))
         
-        # Add benchmark comparison (simple buy & hold S&P 500 proxy)
-        spy_growth = 100000 * (1.10) ** 20  # Assume 10% annual S&P return
-        ax1.axhline(y=spy_growth, color='red', linestyle='--', alpha=0.7, label='S&P 500 Benchmark')
+        # Add benchmark comparison (actual S&P 500 growth)
+        # Fetch SPY data for the same period
+        spy_final_value = 672000  # Default fallback
+        try:
+            import yfinance as yf
+            print("📈 Fetching SPY benchmark data...")
+            
+            # Convert dates to proper datetime format for yfinance
+            start_date = pd.to_datetime(dates[0]).strftime('%Y-%m-%d')
+            end_date = pd.to_datetime(dates[-1]).strftime('%Y-%m-%d')
+            
+            spy_data = yf.download('SPY', start=start_date, end=end_date, progress=False)
+            print(f"SPY data shape: {spy_data.shape}")
+            
+            if not spy_data.empty and len(spy_data) > 1:
+                # Handle different column structures
+                if 'Adj Close' in spy_data.columns:
+                    spy_prices = spy_data['Adj Close']
+                elif ('SPY', 'Adj Close') in spy_data.columns:
+                    spy_prices = spy_data[('SPY', 'Adj Close')]
+                else:
+                    spy_prices = spy_data['Close']
+                
+                spy_normalized = (spy_prices / spy_prices.iloc[0]) * 100000  # Normalize to $100k start
+                spy_final_value = spy_normalized.iloc[-1]
+                
+                # Create SPY timeline matching portfolio frequency
+                spy_dates = spy_prices.index
+                spy_values = spy_normalized.values
+                
+                ax1.plot(spy_dates, spy_values, color='red', linestyle='--', alpha=0.8, 
+                        linewidth=2, label='S&P 500 (SPY) Benchmark')
+                print(f"✅ Plotted SPY benchmark: ${spy_values[0]:,.0f} → ${spy_values[-1]:,.0f}")
+            else:
+                print("❌ SPY data empty, using fallback")
+                # Fallback to compound growth curve
+                years = len(dates) / 252  # Approximate years
+                spy_final_value = 100000 * (1.10) ** years
+                spy_values = [100000 * (1.10) ** (i/252) for i in range(len(dates))]
+                ax1.plot(dates, spy_values, color='red', linestyle='--', alpha=0.7, 
+                        linewidth=2, label='S&P 500 Benchmark (10% annual)')
+        except Exception as e:
+            print(f"❌ SPY fetch failed: {e}")
+            # Fallback to compound growth curve
+            years = len(dates) / 252  # Approximate years
+            spy_final_value = 100000 * (1.10) ** years
+            spy_values = [100000 * (1.10) ** (i/252) for i in range(len(dates))]
+            ax1.plot(dates, spy_values, color='red', linestyle='--', alpha=0.7, 
+                    linewidth=2, label='S&P 500 Benchmark (10% annual)')
         ax1.legend()
         
         # 2. Holdings Evolution
@@ -346,12 +392,12 @@ class QuarterlyGrowthStrategy:
         # Create performance summary table
         summary_data = [
             ['Metric', 'Quarterly Growth Strategy', 'Benchmark (10% annual)'],
-            ['Final Value', f"${results['final_value']:,.0f}", f"${spy_growth:,.0f}"],
+            ['Final Value', f"${results['final_value']:,.0f}", f"${spy_final_value:,.0f}"],
             ['Total Return', f"{results['total_return']:.1%}", "572.7%"],
             ['Annualized Return', f"{results['annualized_return']:.2%}", "10.00%"],
             ['Wealth Multiple', f"{results['final_value']/100000:.1f}x", "6.7x"],
             ['Avg Quarterly Return', f"{np.mean(quarterly_returns):.1%}" if quarterly_returns else "N/A", "2.41%"],
-            ['Strategy Advantage', f"{((results['final_value']/spy_growth)-1)*100:+.1f}%", "0.0%"]
+            ['Strategy Advantage', f"{((results['final_value']/spy_final_value)-1)*100:+.1f}%", "0.0%"]
         ]
         
         table = ax5.table(cellText=summary_data[1:], colLabels=summary_data[0],
