@@ -204,6 +204,69 @@ python large_scale_analysis.py
 
 **Conclusion**: The diversified Tech Growth portfolio delivers **6x higher returns** with **significantly lower risk** than Bitcoin over 25 years, making it the superior long-term wealth building strategy.
 
+## 📈 **Quarterly Growth Strategy (Dynamic Rebalancing)**
+
+### **Adaptive Portfolio Management - 20 Year Backtest**
+
+![Quarterly Growth Strategy](./results/plots/quarterly_growth_strategy.png)
+
+**Strategy Overview:**
+- **Method**: Every quarter, select top 5 growth performers and optimize with MPT
+- **Universe**: 78 top assets by trading volume
+- **Rebalancing**: 75 quarterly adjustments over 20 years
+- **Optimization**: Modern Portfolio Theory for each rebalancing period
+
+**Performance Results:**
+| Metric | **Quarterly Growth** | **Static Portfolio** | **S&P 500** | **Advantage** |
+|--------|---------------------|---------------------|-------------|---------------|
+| **Final Value** | **$5.44M** | $4.40M | $672K | **+23.6%** |
+| **Annualized Return** | **22.11%** | 21.5% | 10.0% | **+0.61%** |
+| **Wealth Multiple** | **54.4x** | 44x | 6.7x | **+10.4x** |
+| **Total Return** | **5,336%** | 4,300% | 572% | **+1,036%** |
+
+**Key Advantages:**
+- **Adaptive Selection**: Automatically captures emerging growth opportunities
+- **Risk Management**: MPT optimization for each quarterly rebalancing  
+- **Superior Performance**: 23.6% better than static high-performance portfolio
+- **Consistent Growth**: 22.11% annualized returns over full 20-year period
+- **Dynamic Allocation**: Responds to changing market conditions quarterly
+
+### **Portfolio Allocation Timeline (2006-2025)**
+
+![Portfolio Allocation Timeline](./results/plots/portfolio_allocation_timeline.png)
+
+![Yearly Allocation Breakdown](./results/plots/yearly_allocation_breakdown.png)
+
+**Allocation Analysis Results:**
+- **75 Quarterly Rebalances** across 20-year period
+- **68 Unique Stocks** held throughout strategy lifecycle  
+- **Top 5 Holdings** consistently dominated portfolio composition
+
+**Most Frequently Held Stocks:**
+| Rank | Stock | Quarters Held | Avg Allocation | Growth Theme |
+|------|-------|---------------|----------------|--------------|
+| 1 | **NFLX** | 20 quarters | **41.2%** | Streaming Revolution |
+| 2 | **NVDA** | 19 quarters | **37.1%** | AI/GPU Computing |
+| 3 | **AAPL** | 18 quarters | **40.9%** | Mobile Ecosystem |
+| 4 | **AMZN** | 17 quarters | **25.6%** | E-commerce/Cloud |
+| 5 | **MCD** | 16 quarters | **22.8%** | Defensive Consumer |
+| 6 | **MA** | 13 quarters | **41.1%** | Digital Payments |
+| 7 | **T** | 10 quarters | **13.4%** | Telecom Infrastructure |
+| 8 | **GLD** | 10 quarters | **19.3%** | Inflation Hedge |
+
+**Key Allocation Insights:**
+- **Technology Dominance**: NFLX, NVDA, AAPL, AMZN captured major secular trends
+- **Adaptive Selection**: Strategy successfully identified emerging growth leaders
+- **Concentration Strategy**: Top holdings averaged 25-40% allocations for maximum impact
+- **Trend Riding**: Long holding periods (10-20 quarters) allowed full trend capture
+- **Diversification Balance**: 68 different stocks provided risk management across cycles
+
+**Evolution Patterns:**
+- **2006-2010**: Early tech adoption (AAPL mobile revolution)
+- **2010-2015**: Streaming emergence (NFLX dominance)  
+- **2015-2020**: AI/Cloud acceleration (NVDA, AMZN growth)
+- **2020-2025**: Digital transformation maturity (sustained tech leadership)
+
 ## 🎨 **Visualizations**
 
 The system generates comprehensive visualizations including:
