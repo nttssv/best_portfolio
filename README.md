@@ -125,9 +125,9 @@ python large_scale_analysis.py
 
 ### **Current vs Correlation-Optimized Portfolios**
 
-![Portfolio Strategy Comparison](results/plots/portfolio_strategy_comparison.png)
+![Portfolio Strategy Comparison](./results/plots/portfolio_strategy_comparison.png)
 
-![Portfolio Comparison Table](results/plots/portfolio_comparison_table.png)
+![Portfolio Comparison Table](./results/plots/portfolio_comparison_table.png)
 
 **Strategy Analysis:**
 - **Current Portfolio (High Return)**: GE, XOM, NVDA, ORCL, WMT
@@ -146,9 +146,9 @@ python large_scale_analysis.py
 
 ### **25-Year Investment Projections**
 
-![Future Portfolio Showcase](results/plots/future_portfolio_showcase.png)
+![Future Portfolio Showcase](./results/plots/future_portfolio_showcase.png)
 
-![Future Investment Timeline](results/plots/future_investment_timeline.png)
+![Future Investment Timeline](./results/plots/future_investment_timeline.png)
 
 **Recommended Strategy: Tech Growth Portfolio**
 - **Holdings**: GE, XOM, NVDA, ORCL, WMT, WFC
